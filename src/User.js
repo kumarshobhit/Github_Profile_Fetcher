@@ -8,13 +8,10 @@ import useFetch from './userFetch'
 const User = () => {
     const {id}=useParams()
     const {data:user,loading,error}=useFetch(`https://api.github.com/users/${id}`)
-    console.log(user)
     return (
         <div>
         {error && <div>{error}</div>}
-        {loading && <Spinner />}
-
-
+        {loading && <Spinner/> }
         <Link to='/' className="btn  btn-light ">
         Back to Search
         </Link>
@@ -62,7 +59,8 @@ const User = () => {
     <div className="badge badge-dark">Public Gists:{user.public_gists}</div>
     </div>
     <Repo username={user.login} />
-    </div>
+
+            </div>
     )
 }
 
